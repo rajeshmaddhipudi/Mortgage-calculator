@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Calculator, Euro } from 'lucide-react';
 
 function App() {
-  const [principal, setPrincipal] = useState<number>(465000);
+  const [principal, setPrincipal] = useState<number>(500000);
   const [interestRate, setInterestRate] = useState<number>(3.9);
   const [amortizationRate, setAmortizationRate] = useState<number>(1.5);
   const [years, setYears] = useState<number>(10);
@@ -53,7 +53,7 @@ function App() {
                       Principal Amount (€)
                     </label>
                     <div className="relative">
-                      <Euro className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                      
                       <input
                         type="number"
                         value={principal}
@@ -111,7 +111,7 @@ function App() {
                   <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
                     <p className="text-sm text-blue-600 font-medium">Monthly Payment</p>
                     <p className="text-2xl font-bold text-blue-700">
-                      €{results.monthlyPayment.toFixed(2)}
+                      {results.monthlyPayment.toFixed(2)}
                     </p>
                   </div>
 
@@ -119,30 +119,30 @@ function App() {
                     <div className="bg-white p-3 rounded-lg border border-gray-200">
                       <p className="text-sm text-gray-600">Monthly Amortization</p>
                       <p className="text-lg font-semibold text-gray-800">
-                        €{results.monthlyAmortization.toFixed(2)}
+                        {results.monthlyAmortization.toFixed(2)}
                       </p>
                     </div>
                     
                     <div className="bg-white p-3 rounded-lg border border-gray-200">
                       <p className="text-sm text-gray-600">Monthly Interest</p>
                       <p className="text-lg font-semibold text-gray-800">
-                        €{results.monthlyInterest.toFixed(2)}
+                        {results.monthlyInterest.toFixed(2)}
                       </p>
                     </div>
                   </div>
 
                   <div className="mt-6 space-y-3">
                     <div className="bg-white p-4 rounded-lg border border-gray-200">
-                      <p className="text-sm text-gray-600">Total Amortization After {years} Years</p>
+                      <p className="text-sm text-gray-600">Total debt filled After {years} </p>
                       <p className="text-lg font-semibold text-gray-800">
-                        €{results.totalAmortization.toFixed(2)}
+                        {results.totalAmortization.toFixed(2)}
                       </p>
                     </div>
 
                     <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
-                      <p className="text-sm text-amber-600 font-medium">Balloon Payment</p>
+                      <p className="text-sm text-amber-600 font-medium">Remaining Principle Amount</p>
                       <p className="text-xl font-bold text-amber-700">
-                        €{results.balloonPayment.toFixed(2)}
+                        {results.balloonPayment.toFixed(2)}
                       </p>
                     </div>
                   </div>
@@ -151,12 +151,37 @@ function App() {
             </div>
           </div>
 
-          <div className="mt-6 text-center text-sm text-gray-500">
-            <p>This calculator provides estimates for German mortgage payments with balloon payment structure.</p>
-            <p>Please consult with financial advisors for accurate mortgage planning.</p>
-          </div>
+         
         </div>
       </div>
+      <footer className="bg-gray-800 text-gray-300 py-8 mt-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Legal Information</h3>
+                <p className="text-sm mb-2">© 2024 German Mortgage Calculator</p>
+                <p className="text-sm mb-2">Operated by: Maddhipudi</p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-4">Contact</h3>
+                <p className="text-sm mb-2">Düsseldorf, Germany</p>
+                <p className="text-sm mb-2">Email: rajeshmaddhipudi@gmail.com</p>
+              </div>
+            </div>
+            <div className="mt-8 pt-6 border-t border-gray-700 text-sm">
+              <p className="mb-2">
+                Responsible for content according to § 55 Abs. 2 RStV: Rajesh Maddhipudi
+              </p>
+              <p>
+                This website is for informational purposes only. The calculator results are estimates and 
+                do not constitute financial advice. For accurate mortgage planning, please consult with 
+                qualified financial advisors.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
